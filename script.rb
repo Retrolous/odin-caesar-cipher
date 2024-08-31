@@ -1,6 +1,6 @@
 require "pry-byebug"
 
-def caeser_cipher(string, shift = 0) 
+def caesar_cipher(string, shift = 0) 
   actual_shift = shift.to_i % 26 # find out the actual shift in value, ignoring any loops (increments / decrements greater than 26)
   codepoints_array = string.to_s.codepoints # convert each character to a codepoint for modification
   shifted_array = codepoints_array.map do |codepoint|
@@ -20,13 +20,15 @@ def caeser_cipher(string, shift = 0)
   shifted_array.join("")
 end
 
-# puts caeser_cipher("aTtAckatdaWN", 2) # works normally
-# puts caeser_cipher("aTtAckatdaWN", 22131382131) # works with large shift
-# puts caeser_cipher("aTtAcka%%%t, daWN", 2) # works with special characters
-# puts caeser_cipher("aTtAckatdaWN", -2) # works with negative shift
-# puts caeser_cipher("aTtAckatdaWN", -28) # works with large negative shift
-# puts caeser_cipher("", -28) # works with no string
-# puts caeser_cipher("gruh", 0) # works with no shift
-# puts caeser_cipher("", -28) # works with no string
-# puts caeser_cipher("gruh", 23.4) # works with float shift
-# puts caeser_cipher(:gruh, 23) # works with non-string input
+# puts caesar_cipher("aTtAckatdaWN", 2) # works normally
+# puts caesar_cipher("aTtAckatdaWN", 22131382131) # works with large shift
+# puts caesar_cipher("aTtAcka%%%t, daWN", 2) # works with special characters
+# puts caesar_cipher("aTtAckatdaWN", -2) # works with negative shift
+# puts caesar_cipher("aTtAckatdaWN", -28) # works with large negative shift
+# puts caesar_cipher("", -28) # works with no string
+# puts caesar_cipher("gruh", 0) # works with no shift
+# puts caesar_cipher("", -28) # works with no string
+# puts caesar_cipher("gruh", 23.4) # works with float shift
+# puts caesar_cipher(:gruh, 23) # works with non-string input
+
+caesar_cipher("What a string!", 5)
