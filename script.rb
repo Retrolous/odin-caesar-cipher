@@ -9,10 +9,10 @@ def caesar_cipher(string, shift = 0)
     modified = codepoint + actual_shift
 
     case 
-      when modified < 65 then modified += 25 # if the modified codepoint ends up being less than the codepoint for "A", loop forward
-      when modified > 90 && codepoint < 97 then modified -= 25 # if the modified codepoint ends up being more than the codepoint for "Z", and the original character wasn't lowercase ("a" or above), loop back
-      when modified < 97 && codepoint >= 97 then modified += 25 # if the modified codepoints ends up being less than "a", but is lowercase, loop forward
-      when modified > 122 then modified -= 25 # if modified more than "z", loop back
+      when modified < 65 then modified += 26 # if the modified codepoint ends up being less than the codepoint for "A", loop forward
+      when modified > 90 && codepoint < 97 then modified -= 26 # if the modified codepoint ends up being more than the codepoint for "Z", and the original character wasn't lowercase ("a" or above), loop back
+      when modified < 97 && codepoint >= 97 then modified += 26 # if the modified codepoints ends up being less than "a", but is lowercase, loop forward
+      when modified > 122 then modified -= 26 # if modified more than "z", loop back
     end
     
     modified.chr(Encoding::UTF_8)
@@ -31,4 +31,4 @@ end
 # puts caesar_cipher("gruh", 23.4) # works with float shift
 # puts caesar_cipher(:gruh, 23) # works with non-string input
 
-caesar_cipher("What a string!", 5)
+puts caesar_cipher("What a string!", 5)
